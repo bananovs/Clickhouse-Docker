@@ -35,8 +35,8 @@ services:
         - clickhouse
     restart: always
     environment:
-      USER: user
-      PASSWORD: password
+      USER: ${USER}
+      PASSWORD: ${PASSWORD}
       CH_NAME: clickhouse
       CH_HOST: clickhouse:8123 
 
@@ -53,12 +53,12 @@ services:
         - clickhouse
     environment:
       GF_INSTALL_PLUGINS: "grafana-piechart-panel,vertamedia-clickhouse-datasource"
-      GF_SECURITY_ADMIN_USER: "user"
-      GF_SECURITY_ADMIN_PASSWORD: "admin"
+      GF_SECURITY_ADMIN_USER: ${USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${PASSWORD}
 
 networks:
     clickhouse:
     
 volumes:
-    clickhouse_db:
+    clickhouse:
     grafana:
